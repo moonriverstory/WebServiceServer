@@ -1,8 +1,9 @@
-package mcpDemo;
+package server;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.log4j.Logger;
 import pojo.FindVendorsResponse;
+import pojo.ImportVendersResponse;
 import pojo.VendorItemPojo;
 import pojo.VendorSiteInfoItemPojo;
 
@@ -10,13 +11,15 @@ import javax.jws.WebService;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebService(serviceName = "SyncVendorsService", portName = "SyncVendorsServicePort", endpointInterface = "mcpDemo.SyncVendorsService")
-public class SyncVendorsServiceImpl implements SyncVendorsService {
+@WebService(serviceName = "FindService", portName = "FindServicePort", endpointInterface = "server.FindService")
+public class FindServiceImpl implements FindService {
 
-    private static Logger logger = Logger.getLogger(SyncVendorsServiceImpl.class);
+    private static Logger logger = Logger.getLogger(FindServiceImpl.class);
+
+
 
     @Override
-    public String findVendors(String req) {
+    public String find(String req) {
 
         logger.debug("find req: " + req);
 

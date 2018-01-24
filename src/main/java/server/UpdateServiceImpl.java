@@ -1,18 +1,23 @@
-package mcpDemo;
+package server;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.log4j.Logger;
+import pojo.FindVendorsResponse;
 import pojo.ImportVendersResponse;
+import pojo.VendorItemPojo;
+import pojo.VendorSiteInfoItemPojo;
 
 import javax.jws.WebService;
+import java.util.ArrayList;
+import java.util.List;
 
-@WebService(serviceName = "SynPopVendorSrv", portName = "SynPopVendorSrvPort", endpointInterface = "mcpDemo.SynPopVendorSrv")
-public class SynPopVendorSrvImpl implements SynPopVendorSrv {
+@WebService(serviceName = "UpdateService", portName = "UpdateServicePort", endpointInterface = "server.UpdateService")
+public class UpdateServiceImpl implements UpdateService {
 
-    private static Logger logger = Logger.getLogger(SynPopVendorSrvImpl.class);
+    private static Logger logger = Logger.getLogger(UpdateServiceImpl.class);
 
     @Override
-    public String importVenders(String req) {
+    public String update(String req) {
         logger.debug("update req: " + req);
 
         ImportVendersResponse response = new ImportVendersResponse();
